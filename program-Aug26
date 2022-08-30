@@ -1,0 +1,55 @@
+> #Author : Victoria Hudson, Date: 8/26/2022, Purpose: To test out more functions in R
+> 
+> # Create the data frame.
+> emp.data <- data.frame(
++    emp_id = c (1:5), 
++    emp_name = c("Rick","Dan","Michelle","Ryan","Gary"),
++    salary = c(623.3,515.2,611.0,729.0,843.25), 
++ start_date = as.Date(c("2012-01-01", "2013-09-23", "2014-11-15", "2014-05-11",
++       "2015-03-27")),
++    stringsAsFactors = FALSE
++ )
+> 
+> 
+> # Create a matrix 
+> emp.data.matrix <- as.matrix(emp.data)
+> 
+> # selection on datasets
+> 
+> # column
+> emp.data.matrix[,1]
+[1] "1" "2" "3" "4" "5"
+> 
+> # row
+> emp.data.matrix[1,]
+      emp_id     emp_name       salary   start_date 
+         "1"       "Rick"     "623.30" "2012-01-01" 
+> 
+> # Convert floats to numerics
+> as.numeric(emp.data.matrix[,3])
+[1] 623.30 515.20 611.00 729.00 843.25
+> 
+> 
+> # Selecting two specified columns from matrix 
+> emp.data.matrix[,c(2, 3)]
+     emp_name   salary  
+[1,] "Rick"     "623.30"
+[2,] "Dan"      "515.20"
+[3,] "Michelle" "611.00"
+[4,] "Ryan"     "729.00"
+[5,] "Gary"     "843.25"
+> 
+> # selecting two specified rows from matrix 
+> emp.data.matrix[c(2, 3),]
+     emp_id emp_name   salary   start_date  
+[1,] "2"    "Dan"      "515.20" "2013-09-23"
+[2,] "3"    "Michelle" "611.00" "2014-11-15"
+> 
+> 
+> # How to perform sub-setting 
+> emp.data.matrix[c(emp.data.matrix[,1] < 4),]
+     emp_id emp_name   salary   start_date  
+[1,] "1"    "Rick"     "623.30" "2012-01-01"
+[2,] "2"    "Dan"      "515.20" "2013-09-23"
+[3,] "3"    "Michelle" "611.00" "2014-11-15"
+> 
